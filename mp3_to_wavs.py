@@ -17,7 +17,7 @@ def convert_mp3_to_wavs(file_path):
     sound.export("sound.wav", format="wav")
 
     myaudio = AudioSegment.from_file("sound.wav", "wav")
-    chunk_length_ms = 5000  # pydub calculates in millisec
+    chunk_length_ms = 50000  # pydub calculates in millisec
     chunks = make_chunks(myaudio, chunk_length_ms)
 
     os.chdir('audio_chunks')
