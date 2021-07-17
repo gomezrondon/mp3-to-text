@@ -1,0 +1,11 @@
+# how to split a big mp4 video file (> 1 hour and beyond)
+ffmpeg -ss 00:00:00 -t 00:35:00 -i apple.mp4 -acodec copy -vcodec copy apple01.mp4
+ffmpeg -ss 00:35:01 -t 01:12:53 -i apple.mp4 -acodec copy -vcodec copy apple02.mp4
+
+# how to extract mp3 audio from a video mp4
+ffmpeg -i apple01.mp4 -b:a 96K -vn apple01.mp3
+ffmpeg -i apple02.mp4 -b:a 96K -vn apple02.mp3
+
+#how to convert mp3 to wav
+python mp3_to_wavs.py apple01.mp3 apple01.wav
+python mp3_to_wavs.py apple02.mp3 apple02.wav
